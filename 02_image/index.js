@@ -18,7 +18,10 @@ tweet();
 async function tweet() {
   // const gif = await getGIF();
   // const mediaId = await client.v1.uploadMedia(Buffer.from(gif), { type: 'gif' });
+
   const mediaId = await client.v1.uploadMedia('rainbow.png', { type: 'png' });
+  // await client.v1.createMediaMetadata(`${mediaId}`, { alt_text: 'Rainbow!' });
+
   const metaData = {
     media_id: `${mediaId}`,
     alt_text: {
