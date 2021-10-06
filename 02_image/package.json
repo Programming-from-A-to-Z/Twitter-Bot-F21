@@ -1,0 +1,25 @@
+{
+  "name": "twitter-bot-f21",
+  "version": "1.0.0",
+  "description": "2021 twitter bot examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Programming-from-A-to-Z/Twitter-Bot-F21.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Programming-from-A-to-Z/Twitter-Bot-F21/issues"
+  },
+  "homepage": "https://github.com/Programming-from-A-to-Z/Twitter-Bot-F21#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-fetch": "^3.0.0",
+    "tenorjs": "^1.0.8",
+    "twitter-api-v2": "^1.5.2"
+  }
+}
