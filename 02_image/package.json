@@ -20,6 +20,6 @@
     "dotenv": "^10.0.0",
     "node-fetch": "^3.0.0",
     "tenorjs": "^1.0.8",
-    "twitter-api-v2": "^1.5.2"
+    "twitter-api-v2": "^1.6.0"
   }
 }
