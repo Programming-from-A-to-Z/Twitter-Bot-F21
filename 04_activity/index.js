@@ -1,10 +1,21 @@
+require('dotenv').config();
+
+const { TwitterApi } = require('twitter-api-v2');
+
+const config = {
+  appKey: process.env.TWITTER_API_KEY,
+  appSecret: process.env.TWITTER_API_SECRET,
+  accessToken: process.env.TWITTER_ACCESS_TOKEN,
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+};
+
+const client = new TwitterApi(config);
+
 const { Autohook, validateWebhook, validateSignature } = require('twitter-autohook');
 
 const url = require('url');
 const ngrok = require('ngrok');
 const http = require('http');
-
-require('dotenv').config();
 
 initActivity();
 
@@ -13,6 +24,17 @@ async function tweetHandler(for_user_id, tweet) {
   console.log(for_user_id, user.id_str);
   console.log(id_str);
   console.log(text);
+  if (for_user_id !== user.id_str) {
+    const params = {
+      in_reply_to_status_id: id_str,
+      auto_populate_reply_metadata: true,
+    };
+    const response = await client.v1.tweet(`Choo choo!`, params);
+    const { created_at, id, full_text } = response;
+    console.log(`${id} ${created_at}: ${full_text}`);
+  } else {
+    console.log('not going to reply to my own tweet!');
+  }
 }
 
 async function initActivity() {
