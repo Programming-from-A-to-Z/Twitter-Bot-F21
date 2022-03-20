@@ -15,12 +15,12 @@ const client = new TwitterApi(config);
 stream();
 
 function newTweet(tweet) {
-  console.log(tweet.text);
+  console.log(tweet.id);
 }
 
 async function stream() {
   const params = {
-    track: '#JavaScript',
+    track: 'random',
   };
   const stream = await client.v1.filterStream(params);
 
